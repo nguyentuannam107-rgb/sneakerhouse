@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SNEAKER HOUSE - Shop Giày Chính Hãng</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f6f6f6;
+            color: #222;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: #111;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ff4d00;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff4d00;
+        }
+
+        .cart-button {
+            border: none;
+            background: #ff4d00;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .cart-button:hover {
+            background: #e64300;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 500px;
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: #ff4d00;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: white;
+            color: #ff4d00;
+        }
+
+        /* ================= SECTION ================= */
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: -50px;
+            position: relative;
+        }
+
+        .feature {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* ================= FILTER ================= */
+
+        .filter-area {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .filter-area select {
+            padding: 13px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: white;
+            min-width: 180px;
+            cursor: pointer;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.13);
+        }
+
+        .product-image {
+            height: 230px;
+            overflow: hidden;
+            position: relative;
+            background: #eee;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .product:hover img {
+            transform: scale(1.08);
+        }
+
+        .sale {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ff4d00;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-category {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 7px;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: #ffb400;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .new-price {
+            color: #ff4d00;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 13px;
+        }
+
+        .add-cart {
+            width: 100%;
+            border: none;
+            padding: 12px;
+            background: #111;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-cart:hover {
+            background: #ff4d00;
+        }
+
+        /* ================= PROMOTION ================= */
+
+        .promotion {
+            background: #111;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .promotion h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .promotion p {
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .promotion strong {
+            color: #ff4d00;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-text h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: #ff4d00;
+        }
+
+        .footer-column p,
+        .footer-column li {
+            color: #bbb;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* ================= CART ================= */
+
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 2000;
+        }
+
+        .cart-overlay.active {
+            display: block;
+        }
+
+        .cart {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            width: 420px;
+            max-width: 100%;
+            background: white;
+            z-index: 2001;
+            transform: translateX(100%);
+            transition: 0.35s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart.active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            font-size: 22px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .cart-item-price {
+            color: #ff4d00;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .quantity button {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+        }
+
+        .remove-item {
+            border: none;
+            background: none;
+            color: #d00;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 7px;
+        }
+
+        .cart-footer {
+            border-top: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .checkout-button {
+            width: 100%;
+            padding: 14px;
+            background: #ff4d00;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #999;
+            padding: 50px 10px;
+        }
+
+        /* ================= MODAL ================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            width: 500px;
+            max-width: 100%;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            background: none;
+            border: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .submit-order {
+            width: 100%;
+            padding: 14px;
+            background: #111;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .submit-order:hover {
+            background: #ff4d00;
+        }
+
+        /* ================= TOAST ================= */
+
+        .toast {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #111;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 7px;
+            z-index: 5000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 750px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .header-container {
+                height: 60px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .cart-button {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 50px 15px;
+            }
+
+            .filter-area {
+                flex-direction: column;
+            }
+
+            .filter-area select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="header-container">
+
+        <div class="logo">
+            SNEAKER<span>HOUSE</span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒 Giỏ hàng (<span id="cartCount">0</span>)
+        </button>
+
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>GIÀY ĐẸP - PHONG CÁCH RIÊNG</h1>
+
+        <p>
+            Khám phá bộ sưu tập giày thể thao thời trang
+            dành cho mọi phong cách.
+        </p>
+
+        <a href="#products" class="hero-button">
+            MUA NGAY
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section">
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <h3>Giao hàng nhanh</h3>
+            <p>Giao hàng toàn quốc từ 2-5 ngày.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">✅</div>
+            <h3>Hàng chính hãng</h3>
+            <p>Cam kết sản phẩm chất lượng cao.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <h3>Đổi trả dễ dàng</h3>
+            <p>Hỗ trợ đổi size trong 7 ngày.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💳</div>
+            <h3>Thanh toán an toàn</h3>
+            <p>Nhiều phương thức thanh toán.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section" id="products">
+
+    <div class="section-title">
+
+        <h2>SẢN PHẨM NỔI BẬT</h2>
+
+        <p>
+            Những mẫu giày được yêu thích nhất tại cửa hàng
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH + FILTER -->
+
+    <div class="filter-area">
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔎 Tìm kiếm tên giày..."
+                oninput="filterProducts()"
+            >
+        </div>
+
+        <select id="categoryFilter" onchange="filterProducts()">
+
+            <option value="all">
+                Tất cả danh mục
+            </option>
+
+            <option value="Sneaker">
+                Sneaker
+            </option>
+
+            <option value="Chạy bộ">
+                Giày chạy bộ
+            </option>
+
+            <option value="Bóng đá">
+                Giày bóng đá
+            </option>
+
+            <option value="Thời trang">
+                Giày thời trang
+            </option>
+
+        </select>
+
+
+        <select id="sortFilter" onchange="filterProducts()">
+
+            <option value="default">
+                Sắp xếp mặc định
+            </option>
+
+            <option value="low">
+                Giá thấp → cao
+            </option>
+
+            <option value="high">
+                Giá cao → thấp
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div class="products" id="productList">
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product"
+             data-name="Nike Air Max 270"
+             data-category="Sneaker"
+             data-price="2490000">
+
+            <div class="product-image">
+
+                <span class="sale">-20%</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+                    alt="Nike Air Max 270"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Sneaker
+                </div>
+
+                <div class="product-name">
+                    Nike Air Max 270
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        2.490.000₫
+                    </span>
+
+                    <span class="old-price">
+                        3.100.000₫
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                        'Nike Air Max 270',
+                        2490000,
+                        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80'
+                    )"
+                >
+                    🛒 Thêm vào giỏ
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product"
+             data-name="Adidas Ultraboost"
+             data-category="Chạy bộ"
+             data-price="2890000">
+
+            <div class="product-image">
+
+                <span class="sale">-15%</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=700&q=80"
+                    alt="Adidas Ultraboost"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Chạy bộ
+                </div>
+
+                <div class="product-name">
+                    Adidas Ultraboost
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        2.890.000₫
+                    </span>
+
+                    <span class="old-price">
+                        3.400.000₫
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                        'Adidas Ultraboost',
+                        2890000,
+                        'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=700&q=80'
+                    )"
+                >
+                    🛒 Thêm vào giỏ
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product"
+             data-name="Nike Air Jordan 1"
+             data-category="Sneaker"
+             data-price="3290000">
+
+            <div class="product-image">
+
+                <span class="sale">-10%</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80"
+                    alt="Nike Air Jordan 1"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Sneaker
+                </div>
+
+                <div class="product-name">
+                    Nike Air Jordan 1
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        3.290.000₫
+                    </span>
+
+                    <span class="old-price">
+                        3.650.000₫
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                        'Nike Air Jordan 1',
+                        3290000,
+                        'https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80'
+                    )"
+                >
+                    🛒 Thêm vào giỏ
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product"
+             data-name="Puma RS-X"
+             data-category="Thời trang"
+             data-price="2190000">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80"
+                    alt="Puma RS-X"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Thời trang
+                </div>
+
+                <div class="product-name">
+                    Puma RS-X
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        2.190.000₫
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                        'Puma RS-X',
+                        2190000,
+                        'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=80'
+                    )"
+                >
+                    🛒 Thêm vào giỏ
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product"
+             data-name="Nike Mercurial Vapor"
+             data-category="Bóng đá"
+             data-price="2690000">
+
+            <div class="product-image">
+
+                <span class="sale">HOT</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=700&q=80"
+                    alt="Nike Mercurial Vapor"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Bóng đá
+                </div>
+
+                <div class="product-name">
+                    Nike Mercurial Vapor
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        2.690.000₫
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                        'Nike Mercurial Vapor',
+                        2690000,
+                        'https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=700&q=80'
+                    )"
+                >
+                    🛒 Thêm vào giỏ
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product"
+             data-name="New Balance 574"
+             data-category="Thời trang"
+             data-price="1990000">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&q=80"
+                    alt="New Balance 574"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Thời trang
+                </div>
+
+                <div class="product-name">
+                    New Balance 574
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        1.990.000₫
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                        'New Balance 574',
+                        1990000,
+                        'https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&q=80'
+                    )"
+                >
+                    🛒 Thêm vào giỏ
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 7 -->
+
+        <div class="product"
+             data-name="Adidas Forum Low"
+             data-category="Sneaker"
+             data-price="2390000">
+
+            <div class="product-image">
+
+                <span class="sale">-15%</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80"
+                    alt="Adidas Forum Low"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Sneaker
+                </div>
+
+                <div class="product-name">
+                    Adidas Forum Low
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        2.390.000₫
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                        'Adidas Forum Low',
+                        2390000,
+                        'https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80'
+                    )"
+                >
+                    🛒 Thêm vào giỏ
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 8 -->
+
+        <div class="product"
+             data-name="Vans Old Skool"
+             data-category="Sneaker"
+             data-price="1690000">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=700&q=80"
+                    alt="Vans Old Skool"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Sneaker
+                </div>
+
+                <div class="product-name">
+                    Vans Old Skool
+                </div>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="price">
+
+                    <span class="new-price">
+                        1.690.000₫
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                        'Vans Old Skool',
+                        1690000,
+                        'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=700&q=80'
+                    )"
+                >
+                    🛒 Thêm vào giỏ
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROMOTION ================= -->
+
+<section class="promotion">
+
+    <h2>🔥 SALE ĐẶC BIỆT</h2>
+
+    <p>
+        Giảm đến <strong>30%</strong> cho các sản phẩm được chọn.
+    </p>
+
+    <a href="#products" class="hero-button">
+        XEM SẢN PHẨM
+    </a>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+    <div class="about">
+
+        <img
+            src="https://images.unsplash.com/photo-1554130843-5d7c2a0c3c4a?auto=format&fit=crop&w=1000&q=80"
+            alt="Sneaker House"
+        >
+
+        <div class="about-text">
+
+            <h2>VỀ SNEAKER HOUSE</h2>
+
+            <p>
+                SNEAKER HOUSE là cửa hàng chuyên cung cấp
+                giày thể thao và giày thời trang dành cho
+                giới trẻ.
+            </p>
+
+            <p>
+                Chúng tôi luôn hướng tới những sản phẩm
+                có thiết kế đẹp, chất lượng tốt và mức giá
+                phù hợp với khách hàng.
+            </p>
+
+            <p>
+                Với phương châm
+                <strong>"Đi đẹp - Sống chất"</strong>,
+                chúng tôi mong muốn mang đến cho bạn
+                những đôi giày phù hợp nhất.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>SNEAKER HOUSE</h3>
+
+            <p>
+                Shop giày thể thao và thời trang
+                dành cho giới trẻ.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>LIÊN HỆ</h3>
+
+            <p>📍 Hà Nội, Việt Nam</p>
+
+            <p>📞 0123 456 789</p>
+
+            <p>📧 sneakerhouse@gmail.com</p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>HỖ TRỢ</h3>
+
+            <ul>
+                <li>Chính sách đổi trả</li>
+                <li>Chính sách giao hàng</li>
+                <li>Chính sách bảo hành</li>
+                <li>Hướng dẫn mua hàng</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 SNEAKER HOUSE. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<div class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>🛒 Giỏ hàng</h2>
+
+        <button class="close-cart" onclick="closeCart()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="cart-items" id="cartItems">
+
+        <div class="empty-cart">
+            Giỏ hàng đang trống.
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+
+            <span>Tổng:</span>
+
+            <span id="cartTotal">
+                0₫
+            </span>
+
+        </div>
+
+        <button
+            class="checkout-button"
+            onclick="openCheckout()"
+        >
+            ĐẶT HÀNG
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div class="modal" id="checkoutModal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeCheckout()"
+        >
+            ×
+        </button>
+
+        <h2>Thông tin đặt hàng</h2>
+
+        <form onsubmit="submitOrder(event)">
+
+            <div class="form-group">
+
+                <label>
+                    Họ và tên
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Nhập họ tên"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Số điện thoại
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="Nhập số điện thoại"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Địa chỉ nhận hàng
+                </label>
+
+                <textarea
+                    id="customerAddress"
+                    placeholder="Nhập địa chỉ"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phương thức thanh toán
+                </label>
+
+                <select id="paymentMethod">
+
+                    <option>
+                        Thanh toán khi nhận hàng (COD)
+                    </option>
+
+                    <option>
+                        Chuyển khoản ngân hàng
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-order"
+            >
+                XÁC NHẬN ĐẶT HÀNG
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+    Đã thêm sản phẩm vào giỏ hàng!
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    // ================= CART DATA =================
+
+    let cart = [];
+
+
+    // ================= FORMAT MONEY =================
+
+    function formatMoney(number) {
+
+        return number.toLocaleString('vi-VN') + '₫';
+
+    }
+
+
+    // ================= ADD TO CART =================
+
+    function addToCart(name, price, image) {
+
+        const existingProduct = cart.find(
+            item => item.name === name
+        );
+
+        if (existingProduct) {
+
+            existingProduct.quantity++;
+
+        } else {
+
+            cart.push({
+                name: name,
+                price: price,
+                image: image,
+                quantity: 1
+            });
+
+        }
+
+        updateCart();
+
+        showToast(
+            "Đã thêm " + name + " vào giỏ hàng!"
+        );
+
+    }
+
+
+    // ================= UPDATE CART =================
+
+    function updateCart() {
+
+        const cartItems = document.getElementById("cartItems");
+
+        const cartCount = document.getElementById("cartCount");
+
+        const cartTotal = document.getElementById("cartTotal");
+
+
+        // Total quantity
+
+        let totalQuantity = 0;
+
+        let totalPrice = 0;
+
+
+        cart.forEach(item => {
+
+            totalQuantity += item.quantity;
+
+            totalPrice += item.price * item.quantity;
+
+        });
+
+
+        cartCount.textContent = totalQuantity;
+
+        cartTotal.textContent = formatMoney(totalPrice);
+
+
+        // Empty cart
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML = `
+                <div class="empty-cart">
+                    Giỏ hàng đang trống.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        // Cart products
+
+        cartItems.innerHTML = cart.map(
+            (item, index) => `
+
+                <div class="cart-item">
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+                    <div class="cart-item-info">
+
+                        <h4>
+                            ${item.name}
+                        </h4>
+
+                        <div class="cart-item-price">
+                            ${formatMoney(item.price)}
+                        </div>
+
+                        <div class="quantity">
+
+                            <button
+                                onclick="changeQuantity(${index}, -1)"
+                            >
+                                -
+                            </button>
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+                            <button
+                                onclick="changeQuantity(${index}, 1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                        <button
+                            class="remove-item"
+                            onclick="removeItem(${index})"
+                        >
+                            Xóa sản phẩm
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `
+        ).join("");
+
+    }
+
+
+    // ================= CHANGE QUANTITY =================
+
+    function changeQuantity(index, amount) {
+
+        cart[index].quantity += amount;
+
+
+        if (cart[index].quantity <= 0) {
+
+            cart.splice(index, 1);
+
+        }
+
+
+        updateCart();
+
+    }
+
+
+    // ================= REMOVE ITEM =================
+
+    function removeItem(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+
+    }
+
+
+    // ================= OPEN CART =================
+
+    function openCart() {
+
+        document
+            .getElementById("cart")
+            .classList.add("active");
+
+        document
+            .getElementById("cartOverlay")
+            .classList.add("active");
+
+    }
+
+
+    // ================= CLOSE CART =================
+
+    function closeCart() {
+
+        document
+            .getElementById("cart")
+            .classList.remove("active");
+
+        document
+            .getElementById("cartOverlay")
+            .classList.remove("active");
+
+    }
+
+
+    // ================= TOAST =================
+
+    function showToast(message) {
+
+        const toast =
+            document.getElementById("toast");
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2500);
+
+    }
+
+
+    // ================= SEARCH + FILTER =================
+
+    function filterProducts() {
+
+        const search =
+            document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase();
+
+
+        const category =
+            document
+            .getElementById("categoryFilter")
+            .value;
+
+
+        const sort =
+            document
+            .getElementById("sortFilter")
+            .value;
+
+
+        const container =
+            document.getElementById("productList");
+
+
+        let products =
+            Array.from(
+                container.querySelectorAll(".product")
+            );
+
+
+        // Search
+
+        products = products.filter(product => {
+
+            const name =
+                product.dataset.name.toLowerCase();
+
+            const productCategory =
+                product.dataset.category;
+
+
+            const matchSearch =
+                name.includes(search);
+
+
+            const matchCategory =
+                category === "all" ||
+                productCategory === category;
+
+
+            return matchSearch && matchCategory;
+
+        });
+
+
+        // Sort
+
+        if (sort === "low") {
+
+            products.sort(
+                (a, b) =>
+                    Number(a.dataset.price) -
+                    Number(b.dataset.price)
+            );
+
+        }
+
+
+        if (sort === "high") {
+
+            products.sort(
+                (a, b) =>
+                    Number(b.dataset.price) -
+                    Number(a.dataset.price)
+            );
+
+        }
+
+
+        // Hide all
+
+        container
+            .querySelectorAll(".product")
+            .forEach(product => {
+
+                product.style.display = "none";
+
+            });
+
+
+        // Show matched
+
+        products.forEach(product => {
+
+            product.style.display = "block";
+
+        });
+
+    }
+
+
+    // ================= CHECKOUT =================
+
+    function openCheckout() {
+
+        if (cart.length === 0) {
+
+            showToast(
+                "Vui lòng thêm sản phẩm vào giỏ hàng!"
+            );
+
+            return;
+
+        }
+
+
+        document
+            .getElementById("checkoutModal")
+            .classList.add("active");
+
+    }
+
+
+    function closeCheckout() {
+
+        document
+            .getElementById("checkoutModal")
+            .classList.remove("active");
+
+    }
+
+
+    // ================= SUBMIT ORDER =================
+
+    function submitOrder(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document
+            .getElementById("customerName")
+            .value;
+
+
+        const phone =
+            document
+            .getElementById("customerPhone")
+            .value;
+
+
+        const address =
+            document
+            .getElementById("customerAddress")
+            .value;
+
+
+        if (
+            name.trim() === "" ||
+            phone.trim() === "" ||
+            address.trim() === ""
+        ) {
+
+            alert(
+                "Vui lòng nhập đầy đủ thông tin!"
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "🎉 Đặt hàng thành công!\n\n" +
+            "Khách hàng: " + name + "\n" +
+            "Số điện thoại: " + phone + "\n\n" +
+            "Cảm ơn bạn đã mua hàng tại SNEAKER HOUSE!"
+        );
+
+
+        cart = [];
+
+        updateCart();
+
+        closeCheckout();
+
+        closeCart();
+
+        document
+            .querySelector("#checkoutModal form")
+            .reset();
+
+    }
+
+
+    // ================= ESC KEY =================
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Escape") {
+
+                closeCart();
+
+                closeCheckout();
+
+            }
+
+        }
+    );
+
+
+    // ================= INITIALIZE =================
+
+    updateCart();
+
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Dialogflow</title>
+</head>
+
+<body>
+
+    <h1>Test SNEAKERHOUSE Chatbot</h1>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+    <df-messenger
+        intent="WELCOME"
+        chat-title="SNEAKERHOUSE"
+        agent-id="e105707f-bdf6-4de5-8a17-6a39fc079dfb"
+        language-code="en">
+    </df-messenger>
+
+</body>
+</html>
+</body>
+</html>
+```
